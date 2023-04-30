@@ -23,12 +23,12 @@ find_library(ZeroMQ_LIBRARY
 
 set(SRC
     src/server.cpp
-    src/fpng.cpp
+    # src/fpng.cpp
     )
 
 set(HDR
     include/server.hpp
-    include/fpng.h
+    # include/fpng.h
     include/npy.hpp
     )
 

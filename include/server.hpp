@@ -9,13 +9,12 @@ class Server {
         Server();
         ~Server();
 
-        void load_map(const std::string map_path);
+        void load_map();
 
     private:
         void start();
 
-        std::string m_addr;
-        std::vector<double> m_map;
+        std::vector<int> m_map;
 
         zmq::context_t* m_zmq_ctx = nullptr;
         zmq::socket_t* m_socket = nullptr;
