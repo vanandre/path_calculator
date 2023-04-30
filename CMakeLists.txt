@@ -20,19 +20,23 @@ find_library(ZeroMQ_LIBRARY
         NAMES zmq
         PATHS ${PC_ZeroMQ_LIBRARY_DIRS}
         )
-
-set(SRC
+# SERVER
+set(SRC_SRV
     src/server.cpp
-    # src/fpng.cpp
-    )
-
-set(HDR
-    include/server.hpp
-    # include/fpng.h
-    include/npy.hpp
     )
 
 # The server exec
-add_executable(server ${SRC})
+add_executable(server ${SRC_SRV})
 target_include_directories(server PUBLIC ${ZeroMQ_INCLUDE_DIR} include)
 target_link_libraries(server PUBLIC ${ZeroMQ_LIBRARY})
+
+# CLIENT
+set(SRC_CLT
+    src/client.cpp
+    # src/fpng.cpp
+    )
+
+# The client exec
+add_executable(client ${SRC_CLT})
+target_include_directories(client PUBLIC ${ZeroMQ_INCLUDE_DIR} include)
+target_link_libraries(client PUBLIC ${ZeroMQ_LIBRARY})
